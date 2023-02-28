@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-# Menu item, items and price set for each entry
+"""Menu item, items and price set for each entry. custom method for ingredient availability"""
 class MenuItem(models.Model):
     title= models.CharField(max_length=100, unique=True)
     price= models.FloatField(default=0)
@@ -16,7 +16,7 @@ class MenuItem(models.Model):
     def __str__(self):
         return f"title={self.title}; price={self.price}"
     
-# ingredient model, ing, available quantity, price per unit
+"""ingredient model, ing, available quantity, price per unit"""
 class Ingredient(models.Model):
     name = models.CharField(max_length=100, unique=True)
     quantity= models.FloatField(default=0)
@@ -35,7 +35,7 @@ class Ingredient(models.Model):
         unit_price={self.price_per_unit}
         """
     
-# recipe requirement, list of ingr that each menu req
+"""recipe requirement, list of ingr that each menu requires. custom method for ingredient availability"""
 class RecipeRequirement(models.Model):
     menu_item = models.ForeignKey(MenuItem, on_delete= models.CASCADE)
     ingredient = models.ForeignKey(Ingredient, on_delete= models.CASCADE)
@@ -50,7 +50,7 @@ class RecipeRequirement(models.Model):
     def enough(self):
         return self.quantity <= self.ingredient.quantity
     
-# purchase, log of all purchases made
+"""Log of all purchases made"""
 class Purchase(models.Model):
     menu_item = models.ForeignKey(MenuItem, on_delete= models.CASCADE)
     timestamp = models.DateTimeField(auto_now_add=True)

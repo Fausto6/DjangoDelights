@@ -31,5 +31,5 @@ urlpatterns = [
     path('reciperequirement/new', views.NewRecipeRequirementView.as_view(), name="add_recipe_requirement"),
     path('purchases/', views.PurchasesView.as_view(), name="purchases"),
     path('purchases/new', views.NewPurchaseView.as_view(), name="add_purchase"),
-    path('reports', views.ReportView.as_view(), name="reports")
+    path('reports', views.ReportView.as_view(), name="reports"),
 ]
