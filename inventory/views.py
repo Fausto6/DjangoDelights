@@ -8,7 +8,7 @@ from django.views.generic.edit import CreateView, UpdateView
 from django.core.exceptions import SuspiciousOperation
 
 from .models import Ingredient, MenuItem, Purchase, RecipeRequirement
-#from .forms import IngredientForm, MenuItemForm, RecipeRequirementForm
+from .forms import IngredientForm, MenuItemForm, RecipeRequirementForm
 
 
 class HomeView(LoginRequiredMixin, TemplateView):
@@ -30,13 +30,13 @@ class IngredientsView(LoginRequiredMixin, ListView):
 class NewIngredientView(LoginRequiredMixin, CreateView):
     template_name = "inventory/add_ingredient.html"
     model = Ingredient
-    #form_class = IngredientForm
+    form_class = IngredientForm
 
 
 class UpdateIngredientView(LoginRequiredMixin, UpdateView):
     template_name = "inventory/update_ingredient.html"
     model = Ingredient
-    #form_class = IngredientForm
+    form_class = IngredientForm
 
 
 class MenuView(LoginRequiredMixin, ListView):
@@ -47,13 +47,13 @@ class MenuView(LoginRequiredMixin, ListView):
 class NewMenuItemView(LoginRequiredMixin, CreateView):
     template_name = "inventory/add_menu_item.html"
     model = MenuItem
-    #form_class = MenuItemForm
+    form_class = MenuItemForm
 
 
 class NewRecipeRequirementView(LoginRequiredMixin, CreateView):
     template_name = "inventory/add_recipe_requirement.html"
     model = RecipeRequirement
-    #form_class = RecipeRequirementForm
+    form_class = RecipeRequirementForm
 
 
 class PurchasesView(LoginRequiredMixin, ListView):

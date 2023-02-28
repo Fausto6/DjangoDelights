@@ -20,7 +20,7 @@
       {% endif %}
     </div>
     {% if user.is_authenticated %}
-      <p>Hi, {{ user.username }}!</p>
+      <p>{{ user.username }}</p>
       <nav class="navbar">
         {% url 'home' as home_url %}
         {% url 'ingredients' as ingredients_url %}
